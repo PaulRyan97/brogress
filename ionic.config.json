@@ -1,0 +1,7 @@
+{
+  "name": "brogress",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
