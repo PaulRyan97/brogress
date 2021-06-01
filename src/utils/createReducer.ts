@@ -9,7 +9,7 @@ export const createReducer = (defaultState: Object, handlers: Array<Handler>) =>
         let handler = handlers.find((handler: Handler) => handler.handlesActionType(action.type));
         if (handler)
         {
-            return handler.reducer(handler.requestPreCopy ? _.cloneDeep(oldState) : oldState, action);
+            return handler.reducer(_.cloneDeep(oldState), action);
         }
         return oldState;
     };
@@ -17,14 +17,12 @@ export const createReducer = (defaultState: Object, handlers: Array<Handler>) =>
 
 export class Handler
 {
-    requestPreCopy?: boolean;
     types: Array<string> | string;
     reducer: Function;
 
     //Create a new handler for an action
-    constructor(types: Array<string> | string, reducer: Function, requestPreCopy?: boolean)
+    constructor(types: Array<string> | string, reducer: Function)
     {
-        this.requestPreCopy = requestPreCopy;
         this.types = types;
         this.reducer = reducer;
     }

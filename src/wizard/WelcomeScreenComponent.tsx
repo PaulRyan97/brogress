@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        flexGrow: 1,
     },
     wave: {
       zIndex: 1,
