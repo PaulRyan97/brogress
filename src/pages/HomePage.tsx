@@ -19,7 +19,7 @@ const HomePage = (props: Props) => {
 
     if(showWizard)
     {
-        return <Redirect to={NAVIGATION_ROUTES.WELCOME_SCREEN} />;
+        return <Redirect to={NAVIGATION_ROUTES.WIZARD} />;
     }
 
     return (

@@ -2,13 +2,13 @@ import React, {useEffect} from "react";
 import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
 import '@ionic/react/css/core.css';
 import {NAVIGATION_ROUTES} from "../navigation/navigationConstants";
-import WelcomeScreenComponent from "../wizard/WelcomeScreenComponent";
 import {makeStyles} from "@material-ui/core";
 import HomePage from "../pages/HomePage";
 import {connect} from "react-redux";
 import {getPreference, PREFERENCE_KEYS} from "../platformApis/Preferences";
 import {Dispatch} from "redux";
 import {showWizard} from "./appActions";
+import WizardComponent from "../wizard/WizardComponent";
 
 const useStyles = makeStyles((theme) => ({
     appStyle: {
@@ -39,8 +39,8 @@ const App = (props: Props) => {
                 <Route exact path={NAVIGATION_ROUTES.HOME}>
                     <HomePage/>
                 </Route>
-                <Route exact path={NAVIGATION_ROUTES.WELCOME_SCREEN}>
-                    <WelcomeScreenComponent/>
+                <Route exact path={NAVIGATION_ROUTES.WIZARD}>
+                    <WizardComponent/>
                 </Route>
             </Switch>
         </Router>
