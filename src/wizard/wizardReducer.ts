@@ -6,11 +6,11 @@ export type WizardStateType = {
     stage: WIZARD_STAGES;
 }
 
-const appDefaultState: WizardStateType = {
+const wizardDefaultState: WizardStateType = {
     stage: WIZARD_STAGES.WELCOME,
 };
 
-export default createReducer(appDefaultState, [
+export default createReducer(wizardDefaultState, [
     new Handler(WIZARD_ACTION_TYPES.SET_STAGE, (state: WizardStateType, action: AnyAction) => {
         state.stage = action.stage;
         return state;

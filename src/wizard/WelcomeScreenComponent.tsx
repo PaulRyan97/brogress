@@ -6,8 +6,10 @@ import ForwardArrow from '@material-ui/icons/ArrowForwardRounded';
 import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import {ReactComponent as WelcomeWave} from "../images/wave.svg";
-import {blue, lightBlue} from '../theme/theme';
+import {blue} from '../theme/theme';
 import BenchPressImage from "../images/benchPress.jpg";
+import {Dispatch} from "redux";
+import {setWizardStage, WIZARD_STAGES} from "./wizardActions";
 
 const useStyles = makeStyles((theme) => ({
     welcomeScreen: {
@@ -56,10 +58,13 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-type Props = {};
+type Props = {
+    dispatch: Dispatch;
+};
 
 const WelcomeScreenComponent = (props: Props) => {
     const classes = useStyles();
+    const { dispatch } = props;
 
     return (
         <div className={classes.welcomeScreen}>
@@ -77,7 +82,7 @@ const WelcomeScreenComponent = (props: Props) => {
                 <Typography variant="h6" gutterBottom className={classes.message}>
                     {"Your simple progress tracker"}
                 </Typography>
-                <Fab variant={"extended"} color={"secondary"} className={classes.startButton}>
+                <Fab variant={"extended"} color={"secondary"} className={classes.startButton} onClick={() => dispatch(setWizardStage(WIZARD_STAGES.PROFILE))}>
                     {"Get started"}
                     <ForwardArrow className={classes.icon}/>
                 </Fab>

@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {makeStyles} from "@material-ui/core/styles";
 import {WIZARD_STAGES} from "./wizardActions";
 import WelcomeScreenComponent from "./WelcomeScreenComponent";
+import AddProfileComponent from "./AddProfileComponent";
 
 const useStyles = makeStyles((theme) => ({
 }));
@@ -20,6 +21,8 @@ const WizardComponent = (props: Props) => {
         switch (stage) {
             case WIZARD_STAGES.WELCOME:
                 return <WelcomeScreenComponent/>;
+            case WIZARD_STAGES.PROFILE:
+                return <AddProfileComponent/>;
             default:
                 return null;
         }

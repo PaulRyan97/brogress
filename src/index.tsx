@@ -7,13 +7,17 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import {theme} from "./theme/theme";
 import {Provider} from "react-redux";
 import store from "./store";
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import MomentUtils from '@date-io/moment';
 
 ReactDOM.render(
   <React.StrictMode>
       <Provider store={store}>
-          <ThemeProvider theme={theme}>
-            <App />
-          </ThemeProvider>
+          <MuiPickersUtilsProvider utils={MomentUtils}>
+              <ThemeProvider theme={theme}>
+                <App />
+              </ThemeProvider>
+          </MuiPickersUtilsProvider>
       </Provider>
   </React.StrictMode>,
   document.getElementById('root')

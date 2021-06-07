@@ -17,7 +17,7 @@ export const theme = createMuiTheme({
         },
         text: {
             primary: textColor,
-            secondary: "white",
+            secondary: textColor,
         }
     },
 });
