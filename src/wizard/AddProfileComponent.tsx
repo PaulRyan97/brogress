@@ -10,7 +10,6 @@ import ForwardArrow from '@material-ui/icons/ArrowForwardRounded'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import IconButton from '@material-ui/core/IconButton'
 import { KeyboardDatePicker } from '@material-ui/pickers'
-import moment from 'moment'
 import { Profile } from '../profile/profileTypes'
 import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date'
 import { setProfileInformation } from '../profile/profileActions'
@@ -19,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
     container: {
         height: '100%',
         width: '100%',
-        //backgroundColor: blue,
         display: 'flex',
         flexDirection: 'column',
     },
@@ -133,7 +131,10 @@ const AddProfileComponent = (props: Props) => {
                 disabled={profileInfo === null}
                 color={'secondary'}
                 className={classes.startButton}
-                onClick={() => dispatch(setProfileInformation(profileInfo as Profile))}
+                onClick={() => {
+                    dispatch(setProfileInformation(profileInfo as Profile))
+                    dispatch(setWizardStage(WIZARD_STAGES.PROGRAM))
+                }}
             >
                 {'Choose program'}
                 <ForwardArrow className={classes.icon} />

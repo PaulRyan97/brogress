@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { WIZARD_STAGES } from './wizardActions'
 import WelcomeScreenComponent from './WelcomeScreenComponent'
 import AddProfileComponent from './AddProfileComponent'
+import ChooseProgramComponent from './ChooseProgramComponent'
 
 const useStyles = makeStyles((theme) => ({}))
 
@@ -22,6 +23,8 @@ const WizardComponent = (props: Props) => {
                 return <WelcomeScreenComponent />
             case WIZARD_STAGES.PROFILE:
                 return <AddProfileComponent />
+            case WIZARD_STAGES.PROGRAM:
+                return <ChooseProgramComponent />
             default:
                 return null
         }
