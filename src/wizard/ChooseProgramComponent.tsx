@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import { StoreType } from '../store'
-import { connect } from 'react-redux'
-import { makeStyles } from '@material-ui/core/styles'
-import { Dispatch } from 'redux'
-import { blue, textColor } from '../theme/theme'
-import { Slider } from '@material-ui/core'
-import clsx from 'clsx'
+import React, { useState } from 'react';
+import { StoreType } from '../store';
+import { connect } from 'react-redux';
+import { makeStyles } from '@material-ui/core/styles';
+import { Dispatch } from 'redux';
+import { blue, textColor } from '../theme/theme';
+import { Slider } from '@material-ui/core';
+import clsx from 'clsx';
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -33,16 +33,16 @@ const useStyles = makeStyles((theme) => ({
         color: textColor,
         margin: 'auto',
     },
-}))
+}));
 
 type Props = {
-    dispatch: Dispatch
-}
+    dispatch: Dispatch;
+};
 
 const ChooseProgramComponent = (props: Props) => {
-    const { dispatch } = props
-    const classes = useStyles()
-    const [maxWorkOutDays, setMaxWorkOutDays] = useState(0)
+    const { dispatch } = props;
+    const classes = useStyles();
+    const [maxWorkOutDays, setMaxWorkOutDays] = useState(0);
 
     return (
         <div className={classes.container}>
@@ -60,15 +60,13 @@ const ChooseProgramComponent = (props: Props) => {
                     marks={true}
                 />
             </div>
-            <div>
-            {/*    TODO filter programs from state to display here */}
-            </div>
+            <div>{/*    TODO filter programs from state to display here */}</div>
         </div>
-    )
-}
+    );
+};
 
 const mapStateToProps = (store: StoreType) => {
-    return {}
-}
+    return {};
+};
 
-export default connect(mapStateToProps)(ChooseProgramComponent)
+export default connect(mapStateToProps)(ChooseProgramComponent);

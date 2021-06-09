@@ -19,16 +19,9 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.6.3",
-    "@types/jest": "^26.0.20",
-    "@types/node": "^12.19.15",
-    "@types/react": "^16.14.3",
-    "@types/react-dom": "^16.9.10",
-    "@types/react-router": "^5.1.11",
-    "@types/react-router-dom": "^5.1.7",
     "ionicons": "^5.4.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
-    "prettier": "^2.3.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.4",
@@ -58,17 +51,12 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prettify": "prettier --write src/**/*.{js,ts,tsx}"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "prettify": "prettier --write src/**/*.{js,ts,tsx}",
+    "lint": "eslint ./src/**/*.{js,ts,tsx} --debug --fix"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --stage --bail src/**/*.{js,ts,tsx}"
+      "pre-commit": "pretty-quick --staged --bail --pattern src/**/*.{js,ts,tsx}"
     }
   },
   "browserslist": {
@@ -85,10 +73,28 @@
   },
   "devDependencies": {
     "@capacitor/cli": "3.0.0",
+    "@types/jest": "^26.0.20",
     "@types/lodash": "^4.14.170",
+    "@types/node": "^12.19.15",
+    "@types/react": "^16.14.3",
+    "@types/react-dom": "^16.9.10",
+    "@types/react-router": "^5.1.11",
+    "@types/react-router-dom": "^5.1.7",
     "@types/redux-logger": "^3.0.8",
+    "eslint": "7.11.0",
+    "eslint-config-airbnb-typescript": "12.0.0",
+    "eslint-config-prettier": "7.2.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-prettier": "3.3.1",
+    "eslint-plugin-react": "7.22.0",
+    "eslint-plugin-react-hooks": "4.2.0",
     "husky": "^6.0.0",
+    "prettier": "^2.3.1",
     "pretty-quick": "^3.1.0"
+  },
+  "resolutions": {
+    "react-scripts/eslint-webpack-plugin": "2.4.1"
   },
   "description": "An Ionic project"
 }

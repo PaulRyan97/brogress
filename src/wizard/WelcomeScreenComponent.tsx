@@ -1,15 +1,15 @@
-import React from 'react'
-import { StoreType } from '../store'
-import { connect } from 'react-redux'
-import { Fab } from '@material-ui/core'
-import ForwardArrow from '@material-ui/icons/ArrowForwardRounded'
-import { makeStyles } from '@material-ui/core/styles'
-import Typography from '@material-ui/core/Typography'
-import { ReactComponent as WelcomeWave } from '../images/wave.svg'
-import { blue } from '../theme/theme'
-import BenchPressImage from '../images/benchPress.jpg'
-import { Dispatch } from 'redux'
-import { setWizardStage, WIZARD_STAGES } from './wizardActions'
+import React from 'react';
+import { StoreType } from '../store';
+import { connect } from 'react-redux';
+import { Fab } from '@material-ui/core';
+import ForwardArrow from '@material-ui/icons/ArrowForwardRounded';
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import { ReactComponent as WelcomeWave } from '../images/wave.svg';
+import { blue } from '../theme/theme';
+import BenchPressImage from '../images/benchPress.jpg';
+import { Dispatch } from 'redux';
+import { setWizardStage, WizardStages } from './wizardActions';
 
 const useStyles = makeStyles((theme) => ({
     welcomeScreen: {
@@ -56,19 +56,19 @@ const useStyles = makeStyles((theme) => ({
         color: 'white',
         marginTop: 50,
     },
-}))
+}));
 
 type Props = {
-    dispatch: Dispatch
-}
+    dispatch: Dispatch;
+};
 
 const WelcomeScreenComponent = (props: Props) => {
-    const classes = useStyles()
-    const { dispatch } = props
+    const classes = useStyles();
+    const { dispatch } = props;
 
     return (
         <div className={classes.welcomeScreen}>
-            <img src={BenchPressImage} className={classes.image} />
+            <img src={BenchPressImage} alt={'benchPress'} className={classes.image} />
             <div className={classes.imageOverlay}>
                 <Typography variant="h4" gutterBottom className={classes.subtitleOverlay}>
                     {'Welcome to'}
@@ -82,17 +82,17 @@ const WelcomeScreenComponent = (props: Props) => {
                 <Typography variant="h6" gutterBottom className={classes.message}>
                     {'Your simple progress tracker'}
                 </Typography>
-                <Fab variant={'extended'} color={'secondary'} className={classes.startButton} onClick={() => dispatch(setWizardStage(WIZARD_STAGES.PROFILE))}>
+                <Fab variant={'extended'} color={'secondary'} className={classes.startButton} onClick={() => dispatch(setWizardStage(WizardStages.PROFILE))}>
                     {'Get started'}
                     <ForwardArrow className={classes.icon} />
                 </Fab>
             </div>
         </div>
-    )
-}
+    );
+};
 
 const mapStateToProps = (store: StoreType) => {
-    return {}
-}
+    return {};
+};
 
-export default connect(mapStateToProps)(WelcomeScreenComponent)
+export default connect(mapStateToProps)(WelcomeScreenComponent);
