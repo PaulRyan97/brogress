@@ -1,0 +1,39 @@
+[
+    {
+        "id": 0,
+        "name": "nSuns4Day",
+        "level": 1,
+        "days": [
+            1,
+            2,
+            4,
+            5
+        ],
+        "workouts": {
+            "1": [
+                {
+                    "exercise": 0,
+                    "sets": "preset-1"
+                }
+            ],
+            "2": [
+                {
+                    "exercise": 1,
+                    "sets": "preset-1"
+                }
+            ],
+            "4": [
+                {
+                    "exercise": 0,
+                    "sets": "preset-2"
+                }
+            ],
+            "5": [
+                {
+                    "exercise": 2,
+                    "sets": "preset-1"
+                }
+            ]
+        }
+    }
+]

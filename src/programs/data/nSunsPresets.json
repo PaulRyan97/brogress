@@ -1,0 +1,179 @@
+{
+    "0": [
+        {
+            "id": "preset-1",
+            "sets": [
+                {
+                    "percentage": 0.65,
+                    "reps": 8
+                },
+                {
+                    "percentage": 0.75,
+                    "reps": 6
+                },
+                {
+                    "percentage": 0.85,
+                    "reps": 4
+                },
+                {
+                    "percentage": 0.85,
+                    "reps": 4
+                },
+                {
+                    "percentage": 0.85,
+                    "reps": 4
+                },
+                {
+                    "percentage": 0.80,
+                    "reps": 5
+                },
+                {
+                    "percentage": 0.75,
+                    "reps": 6
+                },
+                {
+                    "percentage": 0.7,
+                    "reps": 7
+                },
+                {
+                    "percentage": 0.65,
+                    "reps": 8,
+                    "untilFailure": true
+                }
+            ]
+        },
+        {
+            "id": "preset-2",
+            "sets": [
+                {
+                    "percentage": 0.75,
+                    "reps": 5
+                },
+                {
+                    "percentage": 0.85,
+                    "reps": 3
+                },
+                {
+                    "percentage": 0.95,
+                    "reps": 1,
+                    "untilFailure": true
+                },
+                {
+                    "percentage": 0.9,
+                    "reps": 3
+                },
+                {
+                    "percentage": 0.85,
+                    "reps": 5
+                },
+                {
+                    "percentage": 0.80,
+                    "reps": 3
+                },
+                {
+                    "percentage": 0.75,
+                    "reps": 5
+                },
+                {
+                    "percentage": 0.7,
+                    "reps": 3
+                },
+                {
+                    "percentage": 0.65,
+                    "reps": 5,
+                    "untilFailure": true
+                }
+            ]
+        }
+    ],
+    "1": [
+        {
+            "id": "preset-1",
+            "sets": [
+                {
+                    "percentage": 0.75,
+                    "reps": 5
+                },
+                {
+                    "percentage": 0.85,
+                    "reps": 3
+                },
+                {
+                    "percentage": 0.95,
+                    "reps": 1,
+                    "untilFailure": true,
+                },
+                {
+                    "percentage": 0.9,
+                    "reps": 3
+                },
+                {
+                    "percentage": 0.85,
+                    "reps": 3
+                },
+                {
+                    "percentage": 0.80,
+                    "reps": 3
+                },
+                {
+                    "percentage": 0.75,
+                    "reps": 5
+                },
+                {
+                    "percentage": 0.7,
+                    "reps": 5
+                },
+                {
+                    "percentage": 0.65,
+                    "reps": 5,
+                    "untilFailure": true
+                }
+            ]
+        }
+    ],
+    "2": [
+        {
+            "id": "preset-1",
+            "sets": [
+                {
+                    "percentage": 0.75,
+                    "reps": 5
+                },
+                {
+                    "percentage": 0.85,
+                    "reps": 3
+                },
+                {
+                    "percentage": 0.95,
+                    "reps": 1,
+                    "untilFailure": true,
+                },
+                {
+                    "percentage": 0.9,
+                    "reps": 3
+                },
+                {
+                    "percentage": 0.85,
+                    "reps": 3
+                },
+                {
+                    "percentage": 0.80,
+                    "reps": 3
+                },
+                {
+                    "percentage": 0.75,
+                    "reps": 3
+                },
+                {
+                    "percentage": 0.7,
+                    "reps": 3
+                },
+                {
+                    "percentage": 0.65,
+                    "reps": 3,
+                    "untilFailure": true
+                }
+            ]
+        }
+    ]
+}
