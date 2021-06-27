@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StoreType } from '../store';
-import { connect } from 'react-redux';
+import { connect, ConnectedProps, useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
-import { Dispatch } from 'redux';
 import { blue, textColor } from '../theme/theme';
-import { Slider } from '@material-ui/core';
 import clsx from 'clsx';
+import { Program } from '../programs/programTypes';
+import ProgramCardComponent from '../programs/ProgramCardComponent';
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -33,40 +33,37 @@ const useStyles = makeStyles((theme) => ({
         color: textColor,
         margin: 'auto',
     },
+    programsList: {
+        display: 'flex',
+        flexDirection: 'column',
+    },
 }));
 
-type Props = {
-    dispatch: Dispatch;
-};
+type Props = ReduxProps & {};
 
 const ChooseProgramComponent = (props: Props) => {
-    const { dispatch } = props;
     const classes = useStyles();
-    const [maxWorkOutDays, setMaxWorkOutDays] = useState(0);
+    const { programs } = props;
+    const dispatch = useDispatch();
 
     return (
         <div className={classes.container}>
             <span className={clsx(classes.title, classes.text)}>{'Choose a program to follow'}</span>
             <div>
-                <div className={clsx(classes.dayCountPrompt, classes.text)}>{'How many days per week can you work out?'}</div>
-                <Slider
-                    color={'secondary'}
-                    defaultValue={3}
-                    valueLabelDisplay={'on'}
-                    onChangeCommitted={(event, value: number | number[]) => setMaxWorkOutDays(Array.isArray(value) ? value[0] : value)}
-                    step={1}
-                    min={1}
-                    max={6}
-                    marks={true}
-                />
+                {programs.map((program: Program) => {
+                    return <ProgramCardComponent program={program} />;
+                })}
             </div>
-            <div>{/*    TODO filter programs from state to display here */}</div>
         </div>
     );
 };
 
 const mapStateToProps = (store: StoreType) => {
-    return {};
+    return {
+        programs: store.programsState.programs,
+    };
 };
 
-export default connect(mapStateToProps)(ChooseProgramComponent);
+const connector = connect(mapStateToProps);
+type ReduxProps = ConnectedProps<typeof connector>;
+export default connector(ChooseProgramComponent);

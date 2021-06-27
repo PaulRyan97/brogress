@@ -12,6 +12,7 @@ export type ProgramBlueprint = {
 };
 
 export type Program = {
+    id: string;
     name: string;
     days: Days[];
     level: LiftLevel;
@@ -19,11 +20,11 @@ export type Program = {
 };
 
 export enum LiftLevel {
-    BEGINNER = 0,
-    NOVICE = 1,
-    INTERMEDIATE = 2,
-    ADVANCED = 3,
-    ELITE = 4,
+    BEGINNER = 1,
+    NOVICE = 2,
+    INTERMEDIATE = 3,
+    ADVANCED = 4,
+    ELITE = 5,
 }
 
 export type Workout = {
@@ -67,31 +68,4 @@ export type Exercise = {
     id: ExerciseIDs;
     name: string;
     target: string[];
-};
-
-export const createProgram = (programId: number): Program | null => {
-    let blueprint = programs.find((program: ProgramBlueprint) => program.id === programId);
-    if (blueprint) {
-        let workouts: Partial<{ [key in Days]: Workout }> = {};
-
-        _.forOwn(blueprint.workouts, (value: WorkoutPreset[], key: string) => {
-            let lifts: Lift[] = [];
-            value.forEach((wp: WorkoutPreset) => {
-                let setsPreset = (nSunsPresets as Presets)[wp.exercise].find((preset: Preset) => preset.id === wp.sets);
-                if (setsPreset) {
-                    lifts.push({ exercise: wp.exercise, sets: setsPreset.sets });
-                }
-            });
-
-            workouts[parseInt(key) as Days] = { lifts, accessories: [] };
-        });
-
-        return {
-            name: blueprint.name,
-            days: blueprint.days,
-            level: blueprint.level,
-            workouts: workouts,
-        };
-    }
-    return null;
 };

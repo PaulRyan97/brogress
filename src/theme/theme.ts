@@ -7,6 +7,14 @@ export const darkPrimary = '#212121';
 export const red = '#FF8080';
 export const textColor = '#5F6368';
 
+export const LevelColors = {
+    '1': '#74E381',
+    '2': '#E3DF74',
+    '3': '#E3BC74',
+    '4': '#E3A652',
+    '5': '#D96C6C',
+};
+
 export const theme = createMuiTheme({
     palette: {
         primary: {

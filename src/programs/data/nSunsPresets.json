@@ -101,7 +101,7 @@
                 {
                     "percentage": 0.95,
                     "reps": 1,
-                    "untilFailure": true,
+                    "untilFailure": true
                 },
                 {
                     "percentage": 0.9,
@@ -146,7 +146,7 @@
                 {
                     "percentage": 0.95,
                     "reps": 1,
-                    "untilFailure": true,
+                    "untilFailure": true
                 },
                 {
                     "percentage": 0.9,
