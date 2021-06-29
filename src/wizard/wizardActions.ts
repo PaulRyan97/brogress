@@ -6,6 +6,7 @@ export enum WizardStages {
     WELCOME = 0,
     PROFILE = 1,
     PROGRAM = 2,
+    INACTIVE = 3,
 }
 
 export const setWizardStage = (stage: WizardStages) => {

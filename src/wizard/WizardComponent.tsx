@@ -6,6 +6,8 @@ import { WizardStages } from './wizardActions';
 import WelcomeScreenComponent from './WelcomeScreenComponent';
 import AddProfileComponent from './AddProfileComponent';
 import ChooseProgramComponent from './ChooseProgramComponent';
+import { Redirect } from 'react-router';
+import { NAVIGATION_ROUTES } from '../navigation/navigationConstants';
 
 const useStyles = makeStyles((theme) => ({}));
 
@@ -26,7 +28,7 @@ const WizardComponent = (props: Props) => {
             case WizardStages.PROGRAM:
                 return <ChooseProgramComponent />;
             default:
-                return null;
+                return <Redirect to={NAVIGATION_ROUTES.HOME} />;
         }
     };
 

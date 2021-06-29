@@ -29,6 +29,7 @@ export const loadPrograms = () => {
         return {
             id: program.id,
             name: program.name,
+            description: program.description,
             days: program.days,
             level: program.level,
             workouts: workouts,

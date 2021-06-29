@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StoreType } from '../store';
 import { connect, ConnectedProps, useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
@@ -6,6 +6,11 @@ import { blue, textColor } from '../theme/theme';
 import clsx from 'clsx';
 import { Program } from '../programs/programTypes';
 import ProgramCardComponent from '../programs/ProgramCardComponent';
+import { Fab } from '@material-ui/core';
+import { setWizardStage, WizardStages } from './wizardActions';
+import ForwardArrow from '@material-ui/icons/ArrowForwardRounded';
+import { selectProgram } from '../programs/programActions';
+import { showWizard } from '../app/appActions';
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -36,6 +41,16 @@ const useStyles = makeStyles((theme) => ({
     programsList: {
         display: 'flex',
         flexDirection: 'column',
+        '& > :not(:first-child)': {
+            marginTop: 20,
+        },
+    },
+    icon: {
+        marginLeft: 5,
+    },
+    startButton: {
+        margin: '30px auto',
+        minWidth: 120,
     },
 }));
 
@@ -44,16 +59,31 @@ type Props = ReduxProps & {};
 const ChooseProgramComponent = (props: Props) => {
     const classes = useStyles();
     const { programs } = props;
+    const [selectedProgram, setProgram] = useState<Program | null>(null);
     const dispatch = useDispatch();
 
     return (
         <div className={classes.container}>
             <span className={clsx(classes.title, classes.text)}>{'Choose a program to follow'}</span>
-            <div>
+            <div className={classes.programsList}>
                 {programs.map((program: Program) => {
-                    return <ProgramCardComponent program={program} />;
+                    return <ProgramCardComponent program={program} isSelected={selectedProgram ? selectedProgram.id === program.id : false} onSelect={setProgram} />;
                 })}
             </div>
+            {selectedProgram !== null ? (
+                <Fab
+                    variant={'extended'}
+                    color={'secondary'}
+                    className={classes.startButton}
+                    onClick={() => {
+                        dispatch(selectProgram(selectedProgram));
+                        dispatch(setWizardStage(WizardStages.INACTIVE));
+                        dispatch(showWizard(false));
+                    }}>
+                    {'Finish setup'}
+                    <ForwardArrow className={classes.icon} />
+                </Fab>
+            ) : null}
         </div>
     );
 };

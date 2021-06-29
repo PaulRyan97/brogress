@@ -1,7 +1,8 @@
 [
     {
         "id": 0,
-        "name": "nSuns4Day",
+        "name": "nSuns 5/3/1",
+        "description": "A linear progression powerlifting program.",
         "level": 2,
         "days": [
             1,

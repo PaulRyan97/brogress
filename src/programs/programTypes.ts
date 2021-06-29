@@ -1,21 +1,18 @@
 import { Days } from '../common/commonTypes';
-import programs from './data/programs.json';
-import nSunsPresets from './data/nSunsPresets.json';
-import _ from 'lodash';
 
-export type ProgramBlueprint = {
+export type BaseProgram = {
     id: number;
     name: string;
+    description: string;
     days: Days[];
     level: LiftLevel;
+};
+
+export type ProgramBlueprint = BaseProgram & {
     workouts: Partial<{ [key in Days]: WorkoutPreset[] }>;
 };
 
-export type Program = {
-    id: string;
-    name: string;
-    days: Days[];
-    level: LiftLevel;
+export type Program = BaseProgram & {
     workouts: Partial<{ [key in Days]: Workout }>;
 };
 
